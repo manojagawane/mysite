@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Account Settings · Xpressmania{% endblock %}
+
+{% block javascript %}
+  <script>
+    $(function () {
+
+      $.fn.loadConnection = function (url) {
+        var url = $(this).attr("data-remote");
+        var container = $(this);
+        $.ajax({
+          url: url,
+          cache: false,
+          beforeSend: function () {
+            $(container).spinner(false);
+            $(".block-spinner", container).addClass("pull-right");
+          },
+          success: function (data) {
+            $(container).html(data);
+          },
+          complete: function () {
+            $(container).spinner();
+          }
+        });
+      };
+
+
+    });
+  </script>
+{% endblock javascript %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-3">
+      {% include "settings/settings_menu.html" %}
+    </div>
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Connected Services</h3>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">
+
+          </li>
+          <li class="list-group-item">
+            
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "landing/landing_base.html" %}
+{% block body_block %}
+
+
+  <div class="jambotron">
+    <h1>WElcome to Distributors Detail list!!</h1>
+    <h2>Distributors Name</h2>
+    <p>Name: {{distributors_detail.name}}</p>
+    <p>address: {{distributors_detail.address}}</p>
+    <p>Latitude: {{distributors_detail.latitude}}</p>
+    <p>Longitude: {{distributors_detail.longitude}}</p>
+
+    <h3>List of Shops</h2>
+    {% for shop in distributors_detail.shop.all %}
+      <p>{{shop.name}} is located at address {{shop.address}} {{shop.latitude}} {{shop.longitude}}</p>
+    {% endfor %}
+  </div>
+
+  <div class="container">
+    <p><a class="btn btn-warning" href="{% url 'landing:update' pk=distributors_detail.pk %}">Update</a></p>
+  </div>
+
+
+{% endblock %}

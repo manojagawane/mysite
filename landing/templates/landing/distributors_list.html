@@ -1,0 +1,11 @@
+{% extends "landing/landing_base.html" %}
+{% block body_block %}
+
+  <h1>Welcome to Distributors list!!</h1>
+  <ol>
+    {% for distributor in distributors %}
+    <h2><li><a href="{{distributor.id}}">{{distributor.name}}</a></li></h2>
+    {% endfor %}
+  </ol>
+
+{% endblock %}
